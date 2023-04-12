@@ -23,6 +23,9 @@ if args.work == "regular":
 
     i3.command("workspace 5")
     i3.command("exec spotify")
+    time.sleep(0.1)
+
+    i3.command("workspace 2")
 
 else:
     print("nope")
