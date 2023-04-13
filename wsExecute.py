@@ -8,29 +8,25 @@ args = parser.parse_args()
 
 i3 = i3ipc.Connection()
 
-def execute(payload):
+def openApps(payload):
     for app, delay in payload:
         i3.command(app)
         time.sleep(delay)
 
 if args.work == "regular":
-    execute([
+    openApps([
         ["exec firefox-developer-edition --new-tab https://www.youtube.com", 5],
         ["exec spotify", 4],
         ["exec discord", 2],
         ["exec telegram-desktop", 0]
     ])
 
-    # i3.command("exec firefox-developer-edition --new-tab https://www.youtube.com")
-    # time.sleep(2)
-    
-    # i3.command("exec spotify")
-    # time.sleep(4)
-
-    # i3.command("exec discord")
-    # time.sleep(2)
-
-    # i3.command("exec telegram-desktop")
+if args.work == "development":
+    openApps([
+        ["exec code", 5],
+        ["exec spotify", 0],
+        ["exec alacritty"]
+    ])
 
 else:
     print("nope")
