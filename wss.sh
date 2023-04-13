@@ -1,6 +1,6 @@
 #!/bin/bash
 
-options="Option 1\nOption 2\nOption 3"
+options="Regular\nOption 2\nOption 3"
 selected=$(echo -e "$options" | rofi -dmenu)
 
 case $selected in
