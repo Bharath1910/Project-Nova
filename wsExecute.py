@@ -1,6 +1,9 @@
+#!/home/bharath/.pyenv/versions/projectNova/bin/python
+
 import i3ipc
 import argparse
 import time
+import os
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--work")
@@ -22,10 +25,10 @@ if args.work == "regular":
     ])
 
 if args.work == "development":
+    os.system("/home/bharath/Documents/Codes/projects/ProjectNova/handleProject.py")
     openApps([
-        ["exec code", 5],
         ["exec spotify", 0],
-        ["exec alacritty"]
+        ["exec alacritty", 0]
     ])
 
 else:
