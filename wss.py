@@ -1,3 +1,5 @@
+#!/home/bharath/.pyenv/versions/projectNova/bin/python
+
 from pydymenu import rofi
 import os
 
