@@ -9,7 +9,7 @@ def showExistingProjects():
 
     if gui_select:
         if gui_select[0].startswith("new"):
-            createNewProject(gui_select[0].split(" ")[1])
+            createNewProject(gui_select[0].split(" ")[1], gui_select[0].split(" ")[2])
             return
 
         os.system("code /home/bharath/Documents/Codes/projects/" + gui_select[0])
