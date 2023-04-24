@@ -1,2 +1,4 @@
 test.py
 workspaces.json
+__pycache__
+.coverage
