@@ -19,18 +19,27 @@ class Utils:
         workspaceConfig = self.parseJSON()
         composedConfig = {}
 
-        for workspaceName, commands in workspaceConfig.items():
-            composedCommands = []
-            for commandWorkspaceDelay in commands:
-                i3Command = f"exec {commandWorkspaceDelay[0]}; workspace {commandWorkspaceDelay[1]}"
-                composedCommands.append(i3Command)
+        for workspace, commands in workspaceConfig.items():
+            composedConfig[workspace] = []
 
-                delay = commandWorkspaceDelay[2]
-                composedCommands.append(f"exec sleep {delay}")
+            for command in commands:
+                commandLis = []
+                
+                if command[1] is None:
+                    commandLis.append(f"exec {command[0]}")
+                    
+                
+                else:
+                    commandLis.append(f"exec {command[0]}; workspace {command[1]}")
 
-            composedConfig[workspaceName] = composedCommands
+                if command[2] is not None:
+                    commandLis.append(f"exec sleep {command[2]}")
+
+                composedConfig[workspace].append(commandLis)
         
         return composedConfig
+            
+
 
     def invokei3Commands(self, workspace):
         composedConfig = self.composei3Command()
