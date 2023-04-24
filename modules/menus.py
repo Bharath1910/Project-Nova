@@ -2,12 +2,5 @@ class RofiMenu:
     def executeDevelopmentMenu(self):
         pass
 
-    def loadWorkspaceConfig(self):
+    def executeWorkspacesFromConfig(self, workspace):
         pass
-
-    def executeWorkspace(self, workspace):
-        pass
-
-
-
-    
